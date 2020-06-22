@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAIA,AAAA,OAAO,CAAC;EACJ,UAAU,EAHE,IAAI;CAInB",
+    "sources": [
+        "bootswatch.scss"
+    ],
+    "names": [],
+    "file": "bootswatch.css"
+}

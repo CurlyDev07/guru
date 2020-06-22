@@ -1,0 +1,110 @@
+.table-item{
+    font-family: Arial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 16px 18px;
+    cursor: pointer;
+
+    .title{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: $default;
+        margin-bottom: 0px!important;
+    }
+    
+    .course-code{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: $muted;
+    }
+
+    &:hover{
+        background-color: $gray-10;
+    }
+}
+
+.table-item.active{
+    background-color: $dark;
+    .title{
+        color: $light;
+    }
+    
+    .course-code{
+        color: $light;
+    }
+
+    .material-icons{
+        color: $warning;
+    }
+}
+
+.course-item{
+    font-family: Arial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 16px 18px;
+    cursor: pointer;
+
+    .title{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 15px;
+        color: $default;
+        margin-bottom: 0px!important;
+    }
+
+    &:hover{
+        background-color: $gray-10;
+    }
+}
+
+.course-item.active{
+    background-color: $gray-20;
+}
+
+.topic-item{
+    font-family: Arial;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    width: 100%;
+    background-color: #ffffff;
+    // border-radius: 4px;
+    padding: 16px 18px;
+    cursor: pointer;
+
+    .title{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: $default;
+        margin-bottom: 0px!important;
+    }
+    
+    &:hover{
+        background-color: $gray-10;
+    }
+}
+
+.accordion-title{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    color: $primary;
+}

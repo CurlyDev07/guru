@@ -1,0 +1,13 @@
+<div class="guru-nav">
+    <div class="body align-items-center d-flex justify-content-between" style="margin-left: auto; width: 1140px;">
+        <a href="{{{ config.wwwroot }}}">
+        	{{# output.should_display_navbar_logo }}
+            	<img class="logo" src="{{output.get_logo_url}}">
+            {{/ output.should_display_navbar_logo }}
+        </a>
+        <div class="align-items-center d-flex"> 
+            {{{ output.navbar_plugin_output }}}
+            {{{ output.user_menu }}}
+        </div>
+    </div>
+</div>

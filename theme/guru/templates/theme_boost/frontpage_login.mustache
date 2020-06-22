@@ -1,0 +1,54 @@
+<!-- Login box -->
+<div id="login-form" class="bg-white col-4">
+    <form  id="login" class="signup-form" action="{{{ config.wwwroot }}}/login/index.php" method="POST" role="form">
+        <input type="hidden" name="logintoken" value="{{logintoken}}">
+        <h3>Login</h3>
+        <label for="username">
+            {{^canloginbyemail}}
+                {{#str}}username{{/str}}
+            {{/canloginbyemail}}
+            {{#canloginbyemail}}
+                {{#str}}usernameemail{{/str}}
+            {{/canloginbyemail}}
+        </label>
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-user add-on input-prefix text-default"></i></div>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter you username" required />
+        </div>
+        <label for="password">{{#str}}password{{/str}}</label>
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-lock add-on input-prefix text-default"></i></div>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+        <div class="d-flex justify-content-between align-items-center" style="    margin-top: 40px;">
+        <span class="pl-2" style="font-family: Arial;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 15px;
+            color: #158CC4;">
+            <a href="{{{ config.wwwroot }}}/login/forgot_password.php">Forgot Password?</a>
+        </span>
+        <div class="sign-up-btn">
+            <button type="submit" class="btn btn-primary btn-rounded">GET STARTED NOW</button>
+        </div>
+    </form>
+    {{#output.has_identity_providers}}
+        <h5 class="m-t-2">{{#str}} potentialidps, auth {{/str}}</h5>
+        <div class="potentialidplist" class="m-t-1">
+            {{#output.get_identity_providers}}
+                <div class="potentialidp">
+                    <a href="{{{url}}}" title={{#quote}}{{name}}{{/quote}} class="btn btn-secondary btn-block">
+                    {{#iconurl}}
+                        <img src="{{iconurl}}" alt="" width="24" height="24"/>
+                    {{/iconurl}}
+                    {{name}}
+                    </a>
+                </div>
+            {{/output.get_identity_providers}}
+        </div>
+    {{/output.has_identity_providers}}
+    {{#cansignup}}
+        <a class="btn btn-register btn-primary" href="{{{ config.wwwroot }}}/login/signup.php?">{{#str}}newaccount{{/str}}</a>
+    {{/cansignup}}
+</div>

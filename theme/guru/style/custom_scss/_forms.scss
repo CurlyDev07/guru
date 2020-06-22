@@ -1,0 +1,155 @@
+.form-regular.md-form{
+    input[type="text"]:focus:not([readonly]) {
+        box-shadow: 0 1px 0 0 $primary;
+        border-bottom: 1px solid $primary;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+.form-regular.md-form input[type="text"]:focus:not([readonly]) + label {
+    color: $primary;
+}
+
+.form-success.md-form{
+    input[type="text"]:focus:not([readonly]) {
+        box-shadow: 0 1px 0 0 $success;
+        border-bottom: 1px solid $success;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    input[type="text"]:focus:not([readonly]) + label {
+        color: $success;
+    }
+}
+
+.form-danger.md-form{
+    input[type="text"]:focus:not([readonly]) {
+        box-shadow: 0 1px 0 0 $danger;
+        border-bottom: 1px solid $danger;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+.form-danger.md-form input[type="text"]:focus:not([readonly]) + label {
+    color: $danger;
+}
+
+// CHECKBOXES
+.form-icon.md-form{
+    position: relative;
+
+    input[type="text"]:focus:not([readonly]) {
+        border-bottom: 1px solid $primary;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+   
+    input[type="text"]:focus:not([readonly]) + label{
+        color: $primary;
+    }
+    
+
+    i{
+        padding: 10px 12px 14px 10px;
+        background: #ffffff;
+        position: absolute;
+        margin-top: 12px;
+        /* bottom: 70px; */
+        left: 0%!important;
+        top: 31%!important;
+    }
+}
+
+.form-check-input[type="checkbox"]:checked+label:before, label.btn input[type="checkbox"]:checked+label:before {
+    top: -4px;
+    left: -5px;
+    width: 12px;
+    height: 1.375rem;
+    border-top: 2px solid transparent;
+    border-right: 2px solid $primary;
+    border-bottom: 2px solid $primary;
+    border-left: 2px solid transparent;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+// RADIO BUTTON
+.form-check-input[type="radio"]:checked+label:after{
+    background-color: $primary;
+}
+
+.form-check-input[type="radio"]:checked+label:after{
+    border: 2px solid $primary;
+}
+
+
+// SWITCH
+.switch label input[type="checkbox"]:checked+.lever:after {
+    left: 1.5rem;
+    background-color: #fff;
+    border: 1px solid $primary;
+}
+
+.switch label input[type="checkbox"]:checked+.lever {
+    background-color: $primary;
+}
+
+.switch label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.search{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.search input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary;
+}
+
+.search input.form-control[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid $primary;
+    box-shadow: 0 1px 0 0 $primary;
+}
+
+.search .material-icons{
+    font-size: 20px;
+    margin-right: 9px;
+    color: $muted;
+}
+
+.search-btn{
+    .material-icons{
+        font-size: 20px;
+        margin-right: 9px;
+        color: #ffffff!important;
+    }
+    .search-text{
+        margin-right: 20px;
+    }
+}

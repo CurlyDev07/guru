@@ -1,0 +1,50 @@
+body.behat-site .fixed-top {
+  position: absolute;
+}
+
+body.behat-site .dropdown-item {
+  margin-top: 4px !important;
+  /* stylelint-disable declaration-no-important */
+}
+
+body.behat-site.drawer-ease {
+  -webkit-transition: initial;
+  transition: initial;
+}
+
+body.behat-site [data-region="drawer"] {
+  -webkit-transition: initial;
+  transition: initial;
+  position: absolute;
+}
+
+.phpinfo table,
+.phpinfo th,
+.phpinfo h2 {
+  margin: auto;
+}
+
+.phpinfo h2 {
+  width: 600px;
+}
+
+.phpinfo .e,
+.phpinfo .v,
+.phpinfo .h {
+  border: 1px solid #000;
+  font-size: 0.8em;
+  vertical-align: baseline;
+  color: #000;
+  background-color: #ccc;
+}
+
+.phpinfo .e {
+  background-color: #ccf;
+  font-weight: bold;
+}
+
+.phpinfo .h {
+  background-color: #99c;
+  font-weight: bold;
+}
+/*# sourceMappingURL=debug.css.map */

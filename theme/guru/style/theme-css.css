@@ -1,0 +1,20 @@
+#nav-drawer{
+    z-index: 998!important;
+}
+
+[data-region="drawer"] {
+    width: 0px;
+}
+#page {
+    margin-top: 89px;
+}
+
+body.drawer-open-left {
+    margin-left: 0;
+}
+
+
+.no-overflow{
+    overflow-wrap: break-word;
+}
+

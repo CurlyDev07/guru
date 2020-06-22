@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAIA,UAAU;EACN,WAAW,EAAE,aAAa;EAC1B,GAAG,EAAE,oDAA6D;EAClE,GAAG,EACC,2DAAoE,CAAC,2BAA2B,EAChG,sDAA+D,CAAC,eAAe,EAC/E,qDAA8D,CAAC,cAAc,EAC7E,oDAA6D,CAAC,kBAAkB,EAChF,uEAAgF,CAAC,aAAa;EAClG,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,MAAM",
+    "sources": [
+        "fontawesome.scss"
+    ],
+    "names": [],
+    "file": "fontawesome.css"
+}

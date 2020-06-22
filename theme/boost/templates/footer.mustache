@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page footer.
+}}
+
+
+<style>
+    .footer-section{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+</style>
+
+{{! <footer class="footer-section">
+    <div id="footer" class="d-flex justify-content-end align-items-center" style="padding-top: 111px;">
+        <div class="" style="width: 100%;margin-bottom: -105px;border-bottom: 7px solid #158cc4;margin-right: -17px;"></div>
+        <div class="" style="width: 100%;max-width: 415px;">
+            <img id="pipe" src="\balibago\img\house_and_pipes.png" style="height: 199.56px;right: 282px;bottom: -39px;" alt="">
+        </div>
+        <div class="" style="width: 100%;max-width: 197px;">
+            <img src="\balibago\img\logo\balibago-logo.png" style="margin-bottom: 38px;
+            height: 58px;" alt="">
+        </div>
+    </div>  }}
+    {{{ output.standard_end_of_body_html }}}
+{{! </footer> }}
+
+<script>
+    var timer;
+    var navExpand = false;
+
+    $(document).ready(function () {
+        var bodyWidth = $(".body").width();
+
+        $(".sidenav-rail").hover(function () {
+            timer = setTimeout(function () {
+                $(".nav-expand").animate({width: "241px"});
+                $(".body").animate({"margin-left": "261px"});
+                $(".body").animate({width: "80%"});
+                navExpand=true;
+            }, 800);
+        });
+
+        $(document).mouseup(function (e) { 
+            if (navExpand == true) {
+                if ($(e.target).closest(".sidenav-rail").length  === 0) { 
+                    clearTimeout(timer);
+                    $(".nav-expand").animate({width: "44px"});
+                    $(".body").animate({width: "1140px"});
+                    $(".body").delay().css({"margin-left": "auto"});
+                }
+            }
+            navExpand=false;
+        });
+    });
+</script>

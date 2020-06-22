@@ -1,0 +1,13 @@
+.description.line-clamp p {
+    margin: 0px;
+    color: #999999 !important;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.icon{
+	height: auto !important;
+}

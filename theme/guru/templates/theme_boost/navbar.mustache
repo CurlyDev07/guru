@@ -1,0 +1,21 @@
+<div class="guru-nav">
+    <div class="body align-items-center d-flex justify-content-between" style="margin-left: auto; width: 1140px;">
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.get_logo }}has-logo{{/ output.get_logo }}
+        {{^ output.get_logo }}
+            d-none d-sm-inline
+        {{/ output.get_logo }}
+            ">
+            {{^ output.get_logo }}
+                <div class="logo d-none d-sm-inline">
+                    <img src="{{output.get_logo_url}}" alt="{{sitename}}">
+                </div>
+            {{/ output.get_logo }}
+        </a>
+        <div class="align-items-center d-flex">
+            {{^disablefrontpageloginbox}}
+                {{{ output.navbar_plugin_output }}}
+                {{{ output.user_menu }}}
+            {{/disablefrontpageloginbox}}
+        </div>
+    </div>
+</div>

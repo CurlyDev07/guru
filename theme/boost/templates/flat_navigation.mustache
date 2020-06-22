@@ -1,0 +1,68 @@
+
+
+
+
+<div class="sidenav-rail">
+
+    <!-- 
+    {{# flatnavigation }}
+
+        {{#action}}
+            <a class="{{#isactive}}active{{/isactive}}" href="{{{action}}}" data-key="{{key}}" data-isexpandable="{{isexpandable}}" data-indent="{{get_indent}}" data-showdivider="{{showdivider}}" data-type="{{type}}" data-nodetype="{{nodetype}}" data-collapse="{{collapse}}" data-forceopen="{{forceopen}}" data-isactive="{{isactive}}" data-hidden="{{hidden}}" data-preceedwithhr="{{preceedwithhr}}" {{#parent.key}}data-parent-key="{{.}}"{{/parent.key}}>
+
+                <div class="nav-expand mb-3 {{#isactive}}active{{/isactive}}">
+                    {{#pix}}{{{icon.pix}}}, {{{icon.component}}}, {{{icon.alt}}}{{/pix}}
+                    <span class="{{#isactive}}font-weight-bold{{/isactive}}">
+                          {{{text}}}  
+                    </span>
+                </div>
+
+        {{/action}}
+    {{/ flatnavigation }}
+-->
+
+    <!-- HTML code for side naviation -->
+    <a href="{{{ config.wwwroot }}}/">
+        <div class="nav-expand mb-3 {{#action}}{{#isactive}}active{{/isactive}}{{/action}}">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        </div>
+    </a>
+    <a href="{{{ config.wwwroot }}}/my">
+        <div class="nav-expand mb-3 {{#isactive}}active{{/isactive}}">
+            <i class="material-icons">dashboard</i>
+            <span>Dashboard</span>
+        </div>
+    </a>    
+    <a href="{{{ config.wwwroot }}}/course/index.php?categoryid=6">
+        <div class="nav-expand mb-3">
+            <i class="material-icons">local_library</i>
+            <span>Training</span>
+        </div>
+    </a>
+    <a href="{{{ config.wwwroot }}}/course/index.php?categoryid=7">
+        <div class="nav-expand mb-3">
+            <i class="material-icons">collections_bookmark</i>
+            <span>Library</span>
+        </div>
+    </a>
+    <a href="{{{ config.wwwroot }}}/calendar/view.php?view=month">
+        <div class="nav-expand mb-3">
+            <i class="material-icons">calendar_today</i>
+            <span>Calendar</span>
+        </div>
+    </a>
+    <a href="{{{ config.wwwroot }}}/admin">
+        <div class="nav-expand mb-3">
+            <i class="material-icons">settings</i>
+            <span>Settings</span>
+        </div>
+    </a>
+    <a href="" class="bottom">
+        <div class="nav-expand mb-3 bottom">
+            <i class="material-icons">accessibility</i>
+            <span>Accessibility</span>
+        </div>
+    </a>
+
+</div>
