@@ -34,6 +34,7 @@ if (window.location.pathname == "/guru/course/view.php") {
         <div class="col-4 border-left">
             <div class="align-items-center border-bottom d-flex font-bold fs-20 lh-23 px-3 py-3">
                 <span>Course Content</span>
+                <i class="fas fa-cog ml-auto text-primary"></i>
             </div>
         </div>
     
@@ -293,4 +294,38 @@ if (window.location.pathname == "/guru/course/edit.php") {
   });
   
   $('#fgroup_id_buttonar').hide();// HIDE BOTTOM DEFAULT BUTTON
+}
+
+if (window.location.pathname == "/guru/course/management.php") {
+  let create_new_category_link = $('.listing-actions').children().first().attr('href');// get create new category link
+  $('.listing-actions').hide();// hide old category btn
+  $('.coursecat-management-header').hide();// hide header
+
+  // navbar
+  let breadcrumb = $('#page-navbar').html();
+  $('#page-header .col-12').html('');// remove page Header
+  $('#page-header .col-12').html(`
+    ${breadcrumb}
+    <h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">Manage Courses</h1>
+  `);//add page title
+  $('#page-header .col-12').removeClass('pb-3');// remove class
+  $('#page-header .col-12').removeClass('pt-3');// remove class
+  $('#region-main').removeAttr('id'); // remove  container styles
+
+  $('#category-listing').removeClass('px-3').addClass('px-0'); // remove category padding
+  $('#course-listing').removeClass('px-3').addClass('px-0');// remove course padding
+
+  $('#category-listing-title').hide(); //hide create category button
+  $('#category-listing-title').parent().prepend(`
+    <h3 class="align-items-center py-3 bg-white card-header d-flex justify-content-between" id="category-listing-title" style="
+      font-family: Arial;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 32px;
+      color: #555555;">
+      Categories
+        <a href="${create_new_category_link}" class="btn btn-primary waves-effect waves-light" style="padding: 10px;">Create New Category</a>
+    </h3>
+  `);// prepend new category button 
 }

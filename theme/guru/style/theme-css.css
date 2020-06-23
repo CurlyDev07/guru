@@ -65,3 +65,12 @@ legend.ftoggler > a {
     border-right: 5;
     border-radius: 30px !important;
 }
+
+.page-title{
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 200%;
+    color: #173F73;
+}
