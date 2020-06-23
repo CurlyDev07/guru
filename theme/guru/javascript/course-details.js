@@ -166,3 +166,109 @@ if (window.location.pathname == "/guru/course/view.php") {
     $('.page-title').html(course_title);
 }    
 
+if (window.location.pathname == "/guru/course/edit.php") {
+  let general = $('#id_general').children().last();
+
+  // #FULLNAME
+  let full_name = general.find('#fitem_id_fullname');
+  full_name.parent().addClass('row'); // add row to parent
+  full_name.removeClass('row');
+  full_name.children().first().remove(); //remove col-3
+  full_name.children().first().removeClass('col-md-9');//remove col-9
+  full_name.children().first().children().first().addClass('col-12');//add class col-12
+  full_name.children().first().children().first().attr('placeholder', 'Course name');// add place holder
+  full_name.remove();// remove fullname
+
+  // #SHORTNAME
+  let short_name = general.find('#fitem_id_shortname');
+  short_name.removeClass('row');
+  short_name.children().first().remove(); //remove col-3
+  short_name.children().first().removeClass('col-md-9');//remove col-9
+  short_name.children().first().children().first().addClass('col-12');//add class col-12
+  short_name.children().first().children().first().attr('placeholder', 'Short name');// add place holder
+  short_name.remove();// remove short_name
+
+  // #SHORTNAME
+  let category = general.find('#fitem_id_category');
+  category.removeClass('row');
+  category.children().first().remove(); //remove col-3
+  category.children().first().removeClass('col-md-9');//remove col-9
+  category.children().first().children().first().addClass('col-12');//add class col-12
+  category.children().first().children().first().attr('placeholder', 'Short name');// add place holder
+  category.remove(); // remove category
+
+  // #VISIBLE
+  let visibility = general.find('#fitem_id_visible');
+  visibility.removeClass('row');
+  visibility.children().first().remove(); //remove col-3
+  visibility.children().first().removeClass('col-md-9');//remove col-9
+  visibility.children().first().children().first().addClass('col-12');//add class col-12
+  visibility.remove(); // remove visibility
+
+  // #COURSE START DATE
+  let startdate = general.find('#fitem_id_startdate');
+  startdate.removeClass('row');
+  startdate.children().first().remove(); //remove col-3
+  startdate.children().first().removeClass('col-md-9');//remove col-9
+  startdate.children().first().children().first().addClass('col-12');//add class col-12
+  startdate.remove(); // remove startdate
+
+  // #COURSE END DATE
+  let enddate = general.find('#fitem_id_enddate');
+  enddate.removeClass('row');
+  enddate.children().first().remove(); //remove col-3
+  enddate.children().first().removeClass('col-md-9');//remove col-9
+  enddate.children().first().children().first().addClass('col-12');//add class col-12
+  enddate.remove(); // remove enddate
+
+  // #COURSE ID
+  let courseID = general.find('#fitem_id_idnumber');
+  courseID.removeClass('row');
+  courseID.children().first().remove(); //remove col-3
+  courseID.children().first().removeClass('col-md-9');//remove col-9
+  courseID.children().first().children().first().addClass('col-12');//add class col-12
+  courseID.children().first().children().first().attr('placeholder', 'Course ID');// add place holder
+  courseID.remove(); // remove courseID
+
+  
+  // DISPLAY INPUTS
+  $('#id_general').find('.fcontainer').html(`
+    <div class="col-12 col-sm-3 mb-4">
+      ${full_name.html()}
+    </div>
+    <div class="col-12 col-sm-3 mb-4">
+      ${category.html()}
+    </div>
+    <div class="col-12 col-sm-6 mb-4">
+      ${startdate.html()}
+    </div>
+
+    <div class="col-12 col-sm-3 mb-2">
+      ${short_name.html()}
+    </div>
+    <div class="col-12 col-sm-3 mb-2">
+      ${visibility.html()}
+    </div>
+    <div class="col-12 col-sm-6 mb-2">
+      ${enddate.html()}
+    </div>
+    <div class="col-4 mb-4">
+      ${courseID.html()}
+    </div>
+  `);
+
+  // REMOVE COLLAPSE ALL
+  $('.collapsible-actions').hide();
+
+  // CHANGE THE SUBTITLE BOTTOM PADDING
+  $('#maincontent').next().removeClass('pb-4').addClass('pb-2');
+
+  // ADD CUSTOM BOTTOM BUTTONS
+  $('.body').append(`
+    <div id="bottom-btn-container" class="d-flex align-items-center justify-content-between">
+      <button id="scancel">CANCEL</button>
+      <div><button id="sdraft">SAVE AS DRAFT</button>
+      <button id="sdisplay">SAVE AND DISPLAY</button></div>
+    </div>`
+  );
+}

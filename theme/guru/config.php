@@ -112,5 +112,5 @@ $THEME->layouts = [
 ];
 
 
-$THEME->javascripts_footer = array('course-details');
+$THEME->javascripts_footer = array('course-details', 'material-design');
 
