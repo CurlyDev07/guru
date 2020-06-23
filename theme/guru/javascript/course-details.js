@@ -266,9 +266,31 @@ if (window.location.pathname == "/guru/course/edit.php") {
   // ADD CUSTOM BOTTOM BUTTONS
   $('.body').append(`
     <div id="bottom-btn-container" class="d-flex align-items-center justify-content-between">
-      <button id="scancel">CANCEL</button>
-      <div><button id="sdraft">SAVE AS DRAFT</button>
-      <button id="sdisplay">SAVE AND DISPLAY</button></div>
+      <button id="scancel">
+        <i class="fa-times-circle fas mr-2" style="color: #444444;font-size: 15px;"></i>
+        CANCEL
+      </button>
+      <div>
+        <button id="sreturn">
+          <i class="fa-save fas mr-2" id="yui_3_17_2_1_1592885072117_797" style="color: #444444;"></i>
+          SAVE AND RETURN
+        </button>
+        <button id="sdisplay">SAVE AND DISPLAY</button>
+      </div>
     </div>`
   );
+
+  $('#scancel').click(()=>{
+    $('#id_cancel').trigger('click');
+  });
+
+  $('#sreturn').click(()=>{
+    $('#id_saveandreturn').trigger('click');
+  });
+  
+  $('#sdisplay').click(()=>{
+    $('#id_saveanddisplay').trigger('click');
+  });
+  
+  $('#fgroup_id_buttonar').hide();// HIDE BOTTOM DEFAULT BUTTON
 }

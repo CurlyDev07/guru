@@ -39,7 +39,7 @@ legend.ftoggler > a {
     box-shadow: 0 20px 115px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-#scancel, #sdraft{
+#scancel, #sreturn{
     border: none;
     background: none;
     font-family: Arial;
