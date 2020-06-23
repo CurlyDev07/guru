@@ -29,8 +29,7 @@ class theme_guru_core_course_renderer extends core_course_renderer {
         // die("die");
 
         return "
-        
-            <a class='d-block col-4 ppb' href='course/index.php?categoryid=".$coursecat->id."' style='text-decoration: none;'>
+            <a class='d-block col-4 ppb' href='".new moodle_url('/course/index.php?categoryid='.$coursecat->id)."' style='text-decoration: none;'>
                 <div class='small-card d-flex'>
                     <img class='center-cropped-image' src='https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'>
                     <div class='col pt-2'>
