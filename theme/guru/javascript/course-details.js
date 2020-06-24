@@ -1,5 +1,7 @@
 
 if (window.location.pathname.includes('course/view.php')) {
+  console.log('course/view.php details working');
+
     let bg_image = $(document).find('#course-details-image').attr('src');
 
     // add style to page content
@@ -176,6 +178,9 @@ if (window.location.pathname.includes('course/view.php')) {
 }    
 
 if (window.location.pathname.includes('course/edit.php')) {
+  console.log('course/edit.php details working');
+
+
   // breadcrumb
   let breadcrumb = $('#page-navbar').html();
   $('#page-header .col-12').html('');// remove page Header
@@ -315,6 +320,8 @@ if (window.location.pathname.includes('course/edit.php')) {
 }
 
 if (window.location.pathname.includes('course/management.php')) {
+console.log('course/management.php details working');
+
   let create_new_category_link = $('.listing-actions').children().first().attr('href');// get create new category link
   let create_new_course_link = $('.listing-actions').last().children().first().attr('href');// get create new course link
 
@@ -361,5 +368,5 @@ if (window.location.pathname.includes('course/management.php')) {
     </h3>
   `);// prepend new category button 
 } 
-
+console.log('course details working');
 //test
