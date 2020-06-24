@@ -168,6 +168,16 @@ if (window.location.pathname.includes('course/view.php')) {
 }    
 
 if (window.location.pathname.includes('course/edit.php')) {
+  // breadcrumb
+  let breadcrumb = $('#page-navbar').html();
+  $('#page-header .col-12').html('');// remove page Header
+  $('#page-header .col-12').html(`
+    ${breadcrumb}
+    <h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">Manage Courses</h1>
+  `);//add page title
+  $('#page-header .col-12').removeClass('pb-3');// remove class
+  $('#page-header .col-12').removeClass('pt-3');// remove class
+
   let general = $('#id_general').children().last();
 
   // #FULLNAME
@@ -298,10 +308,23 @@ if (window.location.pathname.includes('course/edit.php')) {
 
 if (window.location.pathname.includes('course/management.php')) {
   let create_new_category_link = $('.listing-actions').children().first().attr('href');// get create new category link
+  let create_new_course_link = $('.listing-actions').last().children().first().attr('href');// get create new course link
+
   $('.listing-actions').hide();// hide old category btn
   $('.coursecat-management-header').hide();// hide header
 
-  // navbar
+  let course_title = $('#course-listing-title').html();
+
+  $('#course-listing-title').parent().prepend(
+    `<h3 class="align-items-center py-3 bg-white card-header d-flex justify-content-between" id="category-listing-title" style="
+      font-family: Arial;font-style: normal;font-weight: bold;font-size: 28px;line-height: 32px;color: #555555;">
+      ${course_title}
+        <a href="${create_new_course_link}" class="btn btn-primary waves-effect waves-light" style="padding: 10px;">Create New Course</a>
+    </h3>`
+  );// add new desin button of create new course
+  $('#course-listing-title').hide();// hide old create new course button
+
+  // breadcrumb
   let breadcrumb = $('#page-navbar').html();
   $('#page-header .col-12').html('');// remove page Header
   $('#page-header .col-12').html(`
@@ -310,6 +333,7 @@ if (window.location.pathname.includes('course/management.php')) {
   `);//add page title
   $('#page-header .col-12').removeClass('pb-3');// remove class
   $('#page-header .col-12').removeClass('pt-3');// remove class
+
   $('#region-main').removeAttr('id'); // remove  container styles
 
   $('#category-listing').removeClass('px-3').addClass('px-0'); // remove category padding
