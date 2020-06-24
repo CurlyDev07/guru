@@ -1,5 +1,5 @@
 
-if (window.location.pathname == "/guru/course/view.php") {
+if (window.location.pathname == "/bwsi2/course/view.php") {
 
     let bg_image = $(document).find('#course-details-image').attr('src');
 
@@ -167,7 +167,7 @@ if (window.location.pathname == "/guru/course/view.php") {
     $('.page-title').html(course_title);
 }    
 
-if (window.location.pathname == "/guru/course/edit.php") {
+if (window.location.pathname == "/bwsi2/course/edit.php") {
   let general = $('#id_general').children().last();
 
   // #FULLNAME
@@ -296,7 +296,7 @@ if (window.location.pathname == "/guru/course/edit.php") {
   $('#fgroup_id_buttonar').hide();// HIDE BOTTOM DEFAULT BUTTON
 }
 
-if (window.location.pathname == "/guru/course/management.php") {
+if (window.location.pathname == "/bwsi2/course/management.php") {
   let create_new_category_link = $('.listing-actions').children().first().attr('href');// get create new category link
   $('.listing-actions').hide();// hide old category btn
   $('.coursecat-management-header').hide();// hide header
@@ -329,3 +329,6 @@ if (window.location.pathname == "/guru/course/management.php") {
     </h3>
   `);// prepend new category button 
 }
+
+
+console.log('course details');
