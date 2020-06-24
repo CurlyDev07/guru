@@ -24,10 +24,6 @@ class theme_guru_core_course_renderer extends core_course_renderer {
     // place your overridden methods (functions) here.
 
     protected function coursecat_category(coursecat_helper $chelper, $coursecat, $depth) {
-        // echo("<pre>");
-        // print_r($coursecat->id);
-        // die("die");
-
         return "
             <a class='d-block col-4 ppb' href='".new moodle_url('/course/index.php?categoryid='.$coursecat->id)."' style='text-decoration: none;'>
                 <div class='small-card d-flex'>
