@@ -1,6 +1,5 @@
 
 if (window.location.pathname.includes('course/view.php')) {
-
     let bg_image = $(document).find('#course-details-image').attr('src');
 
     // add style to page content
@@ -15,15 +14,21 @@ if (window.location.pathname.includes('course/view.php')) {
     $('.section-modchooser').hide(); // hide Add an activity or resource
     
     let topics = [];
-    
+
+    $('#changenumsections').addClass('text-left');// add topic left align
+    $('#changenumsections').find('.icon').attr('class', 'fas fa-plus-square mr-2').attr('style', 'color: #373a3c;');// add topic change icon
+
     let course_topics = $('.custom-topics').children();
+    let addTopics = $('#changenumsections').clone(true, true);
     
     $.each(course_topics, function( index, value ) {
         let title = $(this).find('.sectionname').html();
-        let summary = $(this).find('.summary').html()
+        let summary = $(this).find('.summary').html();
+        $(this).find('.section_action_menu').find('.dropdown').children().first().css('color', '#565656').html('<i class="fas fa-cog ml-auto"></i>'); //add cog icon
+        let settings = $(this).find('.section_action_menu').addClass('position-absolute').css({'right':0, 'top':0}).parent().html();
     
         topics.push({
-            title,summary
+            title,summary,settings
         }); 
     });// get topic name and summary
     
@@ -40,22 +45,25 @@ if (window.location.pathname.includes('course/view.php')) {
     
     `);// delete page content
     $('.course-content').addClass('row');// add row to align layout 
-    
+
     let courses = [];
     $.each(topics, function (index, value) {
         // console.log(value.title);
         // console.log(value.summary);
     
         $('.course-content').children().last().append(`
-            <div id="${index}" class="course-topic align-items-center d-flex fs-14 lh-23 py-3" style="padding-left: 37px;">
+            <div id="${index}" class="course-topic position-relative align-items-center d-flex fs-14 lh-23 py-3" style="padding-left: 37px;">
                 <div class="form-check pl-0">
-                <input type="checkbox" class="form-check-input" id="materialUnchecked${index}">
-                <label class="form-check-label fs-14 lh-20" for="materialUnchecked${index}">${value.title}</label>
+                  <input type="checkbox" class="form-check-input" id="materialUnchecked${index}">
+                  <label class="form-check-label fs-14 lh-20" for="materialUnchecked${index}">${value.title}</label>
                 </div><!-- Material Unchecked -->
+                ${value.settings}
             </div>
         `);
     });// displays all checkbox on the right side
     
+    //ADD TOPICS
+    $('.course-content').children().last().append(addTopics);
     
     $('.course-content').children().first().html(`
         <small class="h3 font-bold text-dark m-0">${topics[1].title}</small>
