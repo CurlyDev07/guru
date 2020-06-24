@@ -360,4 +360,6 @@ if (window.location.pathname.includes('course/management.php')) {
         <a href="${create_new_category_link}" class="btn btn-primary waves-effect waves-light" style="padding: 10px;">Create New Category</a>
     </h3>
   `);// prepend new category button 
-}
+} 
+
+//test
