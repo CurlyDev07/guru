@@ -398,3 +398,9 @@ if (window.location.pathname.includes("course/editsection.php")) {
     $('h2').hide();
     $('.collapsible-actions').hide();
 }
+
+
+if (window.location.pathname.includes("course/index.php")) {
+  $('.courses').css({'display':'flex', 'flex-wrap' : 'wrap'}); // align course
+  $('.content > .row').addClass('px-3');// add some padding
+}

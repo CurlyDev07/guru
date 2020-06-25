@@ -159,7 +159,7 @@ class theme_guru_core_course_renderer extends core_course_renderer {
 
         // Prepare parameters for courses and categories lists in the tree
         $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_AUTO)
-                ->set_attributes(array('class' => 'row category-browse-'.$coursecat->id));
+                ->set_attributes(array('class' => 'category-browse-'.$coursecat->id));
  
         $coursedisplayoptions = array();
         $catdisplayoptions = array();
