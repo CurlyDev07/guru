@@ -30,7 +30,7 @@ class theme_guru_core_course_renderer extends core_course_renderer {
                     <img class='center-cropped-image' src='https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg'>
                     <div class='col pt-2'>
                         <span class='category-name'>Course</span>
-                        <p class='title mb-1 line-clamp'>{$coursecat->name}</p>
+                        <p class='title mb-1' style='display:-webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;'>{$coursecat->name}</p>
                         <div class='description line-clamp'>
                             {$coursecat->description}
                         </div>
