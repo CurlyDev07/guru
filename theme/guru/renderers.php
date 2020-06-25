@@ -159,7 +159,7 @@ class theme_guru_core_course_renderer extends core_course_renderer {
 
         // Prepare parameters for courses and categories lists in the tree
         $chelper->set_show_courses(self::COURSECAT_SHOW_COURSES_AUTO)
-                ->set_attributes(array('class' => 'category-browse-'.$coursecat->id));
+                ->set_attributes(array('class' => 'row category-browse-'.$coursecat->id));
 
         $coursedisplayoptions = array();
         $catdisplayoptions = array();
@@ -418,28 +418,16 @@ class theme_guru_format_topics_renderer extends format_topics_renderer {
         $o .= html_writer::end_tag('div');
         $image = new moodle_url('/theme/guru/pix/course-details-header.png');
         $o .= '<img id="course-details-image" src="'.$image.'">';
+        $o .= '<div id="user_is_editing" class="d-none">'.$PAGE->user_is_editing().'</div>';
+
+        // if ($USER->editing == 1){
+        //     echo "<br />Hewllo World";
+        //     die();
+        // } else {
+        //     echo "<br />oh my god... sad";
+        //     die();
+        // }
         return $o;
-
-
-        // return $this->format_summary_text($section);
-        // echo '<pre>';
-        // var_dump();
-        // die();
-
-        // return $this->format_summary_text($section);
-
-        $hidden_topics = '
-            <div 
-                class="custom-topics d-none" 
-                topic="'.get_section_name($course, $section).'"
-            ></div>
-        ';
-
-        return $hidden_topics;
-
-        // return get_section_name($course, $section);
-        return $section->summary;
-        return $this->format_summary_text($section);
     }
 
     protected function start_section_list() {

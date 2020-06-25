@@ -1,7 +1,5 @@
 
 if (window.location.pathname.includes('course/view.php')) {
-  console.log('course/view.php details working');
-
     let bg_image = $(document).find('#course-details-image').attr('src');
 
     // add style to page content
@@ -15,6 +13,8 @@ if (window.location.pathname.includes('course/view.php')) {
 
     $('.section-modchooser').hide(); // hide Add an activity or resource
     
+    let pageSettings = $('#action-menu-2-menubar').clone(true, true);
+    
     let topics = [];
 
     $('#changenumsections').addClass('text-left');// add topic left align
@@ -22,13 +22,25 @@ if (window.location.pathname.includes('course/view.php')) {
 
     let course_topics = $('.custom-topics').children();
     let addTopics = $('#changenumsections').clone(true, true);
-    
+
+    let is_editing_mode = $('#user_is_editing').html();// check if editing mode is state
+
     $.each(course_topics, function( index, value ) {
         let title = $(this).find('.sectionname').html();
         let summary = $(this).find('.summary').html();
-        $(this).find('.section_action_menu').find('.dropdown').children().first().css('color', '#565656').html('<i class="fas fa-cog ml-auto"></i>'); //add cog icon
-        let settings = $(this).find('.section_action_menu').addClass('position-absolute').css({'right':0, 'top':0}).parent().html();
-    
+        let settings = "";
+
+        if (is_editing_mode) {
+          $(this).find('.section_action_menu').find('.dropdown').children().first().css('color', '#565656').html('<i class="fas fa-cog ml-auto"></i>'); //add cog icon
+          settings = $(this).find('.section_action_menu').addClass('position-absolute').css({
+            'right':0,
+            'top':0,
+            'margin-top': 25,
+            'padding': '0px 1px',
+            'z-index': '999',
+          }).parent().html();
+        }
+
         topics.push({
             title,summary,settings
         }); 
@@ -39,9 +51,8 @@ if (window.location.pathname.includes('course/view.php')) {
             
         </div>
         <div class="col-4 border-left">
-            <div class="align-items-center border-bottom d-flex font-bold fs-20 lh-23 px-3 py-3">
-                <span>Course Content</span>
-                <i class="fas fa-cog ml-auto text-primary"></i>
+            <div id="settings-area" class="align-items-center border-bottom d-flex font-bold fs-20 lh-23 py-3">
+                <span class="mr-auto">Course Content</span>
             </div>
         </div>
     
@@ -111,7 +122,7 @@ if (window.location.pathname.includes('course/view.php')) {
                 margin-top: -47px;">
     
             <div style="padding-bottom: 21px;">
-                <ul class="breadcrumbs mb-1" style="padding-top: 27.5px!important;margin-top: -26px;">
+                <ul class="breadcrumbs mb-1" style="padding-top: 30.5px!important;margin-top: -26px;">
                   <li class="link text-white"><i class="fas fa-home fa-lg"></i></li>
                   <li class="link text-white">My Courses</li>
                   <li class="link text-white disabled"><i class="fas fa-angle-left fa-flip-horizontal"></i></li>
@@ -144,20 +155,14 @@ if (window.location.pathname.includes('course/view.php')) {
           <div class="px-0 body ">
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
               <ul class="nav-custom navbar-nav mr-auto">
-                <!-- <li class="custom-item active">
-                  <a href="" class="custom-link active">Overview</a>
-                </li>
-                <li class="custom-item">
-                  <a href="" class="custom-link">section title</a>
-                </li> -->
                 <li class="nav-item active">
                   <a class="nav-link active" href="#">Overview</a>
                 </li>
                 <li class="nav-item">
-                  <a class="fs-14 lh-26 nav-link px-4" href="#">Section title</a>
+                  <a class="fs-14 lh-26 nav-link px-4" href="#">Activities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="fs-14 lh-26 nav-link px-4" href="#">Topic title</a>
+                  <a class="fs-14 lh-26 nav-link px-4" href="#">Resources</a>
                 </li>
                 <li class="nav-item">
                   <a class="fs-14 lh-26 nav-link px-4" href="#">Topic title</a>
@@ -171,10 +176,14 @@ if (window.location.pathname.includes('course/view.php')) {
         </nav>
     `);
 
+    
+    $('#settings-area').append(pageSettings);// settings
 
     // COURSE TITLE
     let course_title = $('.page-header-headings').children().first().html();
     $('.page-title').html(course_title);
+
+    $('.dropdown-toggle').removeClass('dropdown-toggle')// remove toggle drop down; 
 }    
 
 if (window.location.pathname.includes('course/edit.php')) {
@@ -368,5 +377,22 @@ console.log('course/management.php details working');
     </h3>
   `);// prepend new category button 
 } 
-console.log('course details working');
-//test
+
+
+if (window.location.pathname.includes("course/editsection.php")) {
+    let subtitle = $('.sub-title').last().html();
+    console.log('couse edit secrion working')
+
+    // breadcrumb
+    let breadcrumb = $('#page-navbar').html();
+    $('#page-header .col-12').html('');// remove page Header
+    $('#page-header .col-12').html(`
+      ${breadcrumb}
+      <h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">${subtitle}</h1>
+    `);//add page title
+    $('#page-header .col-12').removeClass('pb-3');// remove class
+    $('#page-header .col-12').removeClass('pt-3');// remove class
+
+    $('h2').hide();
+    $('.collapsible-actions').hide();
+}

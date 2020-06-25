@@ -71,6 +71,27 @@ legend.ftoggler > a {
     font-style: normal;
     font-weight: bold;
     font-size: 40px;
-    line-height: 200%;
+    line-height: 184%;
     color: #173F73;
+}
+
+i.fa.fa-user.add-on.input-prefix.text-default {
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+i.fa.fa-lock.add-on.input-prefix.text-default {
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+#page-course-index-category .generalbox.info {
+    margin-bottom: 15px;
+    border: none;
+    padding: 5px;
+}
+
+.course-topic:hover {
+    background-color: #fff!important;
+    cursor: pointer;
 }
