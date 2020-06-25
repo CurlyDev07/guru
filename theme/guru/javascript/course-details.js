@@ -376,6 +376,8 @@ console.log('course/management.php details working');
         <a href="${create_new_category_link}" class="btn btn-primary waves-effect waves-light" style="padding: 10px;">Create New Category</a>
     </h3>
   `);// prepend new category button 
+
+  $('.fa-arrows').attr('class', 'icon fas fa-arrows-alt fa-fw');// change the drag icon
 } 
 
 
