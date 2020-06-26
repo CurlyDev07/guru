@@ -422,21 +422,25 @@ if (window.location.pathname.includes("course/index.php")) {
 if (window.location.pathname.includes("my/")) {
   
   let courseManagementLink = '/course/management.php';
-  $('.body').append(`
-    <div id="bottom-btn-container" class="d-flex align-items-center justify-content-between">
-      <button id="scancel" class="invisible">
-        <i class="fa-times-circle fas mr-2" style="color: #444444;font-size: 15px;"></i>
-        CANCEL
-      </button>
-      <div>
-        <a href="/bwsi2/course/management.php" id="sreturn">
-          <i class="fa-graduation-cap fas mr-2" id="yui_3_17_2_1_1592885072117_797" style="color: #444444;"></i>
-          MANAGE COURSES
-        </a>
-        <a  href="/bwsi2/course/edit.php" id="sdisplay">ADD COURSE</a>
-      </div>
-    </div>`
-  );
+  let is_admin = $('#is_admin').html();
+  if (is_admin == 'true') {
+    $('.body').append(`
+      <div id="bottom-btn-container" class="d-flex align-items-center justify-content-between">
+        <button id="scancel" class="invisible">
+          <i class="fa-times-circle fas mr-2" style="color: #444444;font-size: 15px;"></i>
+          CANCEL
+        </button>
+        <div>
+          <a href="/guru/course/management.php" id="sreturn">
+            <i class="fa-graduation-cap fas mr-2" id="yui_3_17_2_1_1592885072117_797" style="color: #444444;"></i>
+            MANAGE COURSES
+          </a>
+          <a  href="/guru/course/edit.php" id="sdisplay">ADD COURSE</a>
+        </div>
+      </div>`
+    );
+  }
+
 }
 
 // HOMEPAGE
@@ -445,7 +449,6 @@ if(!url[2]){
   $('#page-header').hide();
   $('.collapsible-actions').hide();// hide collapse
   $('#region-main-box').prepend(`<h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">${capitalize('Home')}</h1>`);
-
 }
 
 function capitalize(string) {

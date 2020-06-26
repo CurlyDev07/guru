@@ -1,9 +1,48 @@
 <?php
 
 class theme_guru_core_renderer extends core_renderer {
+    
     // public function full_header(){
-    //     return '';
+    //     global $CFG, $SITE, $SESSION, $USER;
+     
+       
     // }// remove the header in the dashboard
+    
+
+    public function full_header() {
+        global $PAGE, $CFG, $SITE, $SESSION, $USER;
+
+        if ($PAGE->include_region_main_settings_in_header_actions() && !$PAGE->blocks->is_block_present('settings')) {
+            // Only include the region main settings if the page has requested it and it doesn't already have
+            // the settings block on it. The region main settings are included in the settings block and
+            // duplicating the content causes behat failures.
+            $PAGE->add_header_action(html_writer::div(
+                $this->region_main_settings_menu(),
+                'd-print-none',
+                ['id' => 'region-main-settings-menu']
+            ));
+        }
+
+        $header = new stdClass();
+        $header->settingsmenu = $this->context_header_settings_menu();
+        $header->contextheader = $this->context_header();
+        $header->hasnavbar = empty($PAGE->layout_options['nonavbar']);
+        $header->navbar = $this->navbar();
+        $header->pageheadingbutton = $this->page_heading_button();
+        $header->courseheader = $this->course_header();
+        $header->headeractions = $PAGE->get_header_actions();
+
+        if ($USER->username == 'admin') {
+            echo '<div id="is_admin" class="d-none">true</div>';
+        }else{
+            echo '<div id="is_admin" class="d-none">false</div>';
+        }
+
+        return $this->render_from_template('core/full_header', $header);
+    }
+
+
+
 
     public function heading($text, $level = 2, $classes = 'main', $id = null) {
         $new_heading_classes = "sub-title text-default pb-4";
