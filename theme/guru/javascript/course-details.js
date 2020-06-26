@@ -431,11 +431,11 @@ if (window.location.pathname.includes("my/")) {
           CANCEL
         </button>
         <div>
-          <a href="/guru/course/management.php" id="sreturn">
+          <a href="/bwsi2/course/management.php" id="sreturn">
             <i class="fa-graduation-cap fas mr-2" id="yui_3_17_2_1_1592885072117_797" style="color: #444444;"></i>
             MANAGE COURSES
           </a>
-          <a  href="/guru/course/edit.php" id="sdisplay">ADD COURSE</a>
+          <a  href="/bwsi2/course/edit.php" id="sdisplay">ADD COURSE</a>
         </div>
       </div>`
     );
