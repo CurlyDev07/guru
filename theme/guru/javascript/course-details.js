@@ -37,7 +37,7 @@ if (window.location.pathname.includes('course/view.php')) {
             'top':0,
             'margin-top': 25,
             'padding': '0px 1px',
-            'z-index': '999',
+            'z-index': '998',
           }).parent().html();
         }
 
@@ -383,7 +383,6 @@ console.log('course/management.php details working');
 
 if (window.location.pathname.includes("course/editsection.php")) {
     let subtitle = $('.sub-title').last().html();
-    console.log('couse edit secrion working')
 
     // breadcrumb
     let breadcrumb = $('#page-navbar').html();
@@ -403,4 +402,52 @@ if (window.location.pathname.includes("course/editsection.php")) {
 if (window.location.pathname.includes("course/index.php")) {
   $('.courses').css({'display':'flex', 'flex-wrap' : 'wrap'}); // align course
   $('.content > .row').addClass('px-3');// add some padding
+
+  // Page Header
+  let subtitle = $('.sub-title').last().html().toLowerCase();
+  let breadcrumb = $('#page-navbar').html();
+  $('#page-header .col-12').html('');// remove page Header
+  $('#page-header .col-12').html(`
+    ${breadcrumb}
+    <h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">${capitalize(subtitle)}</h1>
+  `);//add page title
+  $('#page-header .col-12').removeClass('pb-3');// remove class
+  $('#page-header .col-12').removeClass('pt-3');// remove class
+
+  
+  $('.collapsible-actions').hide();// hide collapse
+  $('#coursesearch').addClass('d-flex mb-5 justify-content-center'); // center search
+}
+
+if (window.location.pathname.includes("my/")) {
+  
+  let courseManagementLink = '/course/management.php';
+  $('.body').append(`
+    <div id="bottom-btn-container" class="d-flex align-items-center justify-content-between">
+      <button id="scancel" class="invisible">
+        <i class="fa-times-circle fas mr-2" style="color: #444444;font-size: 15px;"></i>
+        CANCEL
+      </button>
+      <div>
+        <a href="/bwsi2/course/management.php" id="sreturn">
+          <i class="fa-graduation-cap fas mr-2" id="yui_3_17_2_1_1592885072117_797" style="color: #444444;"></i>
+          MANAGE COURSES
+        </a>
+        <a  href="/bwsi2/course/edit.php" id="sdisplay">ADD COURSE</a>
+      </div>
+    </div>`
+  );
+}
+
+// HOMEPAGE
+let url = window.location.pathname.split('/');
+if(!url[2]){
+  $('#page-header').hide();
+  $('.collapsible-actions').hide();// hide collapse
+  $('#region-main-box').prepend(`<h1 class="mt-0 page-title" id="yui_3_17_2_1_1592907271894_200">${capitalize('Home')}</h1>`);
+
+}
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
